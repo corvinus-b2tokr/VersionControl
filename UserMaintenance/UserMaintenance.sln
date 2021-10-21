@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMaintenance", "UserMain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelGen", "..\ExcelGen\ExcelGen.csproj", "{9FB0626C-78D0-4892-BDBD-76D49AB1FADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaR", "VaR\VaR.csproj", "{02B5ECEE-875F-4D53-906B-144F6160FB91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9FB0626C-78D0-4892-BDBD-76D49AB1FADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FB0626C-78D0-4892-BDBD-76D49AB1FADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FB0626C-78D0-4892-BDBD-76D49AB1FADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
