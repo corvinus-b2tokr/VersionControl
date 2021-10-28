@@ -17,11 +17,31 @@ namespace WebServ
     public partial class Form1 : Form
     {
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         string result { get; set; }
         public Form1()
         {
             InitializeComponent();
-            dataGridView1.DataSource = Rates;
+
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var res = response.GetCurrenciesResult;
+            var xml = new XmlDocument();
+            xml.LoadXml(res);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                for (int i = 0; i < element.InnerText.Length / 3; i++)
+                {
+                    string curr;
+                    var childElement = (XmlElement)element.ChildNodes[i];
+                    if (childElement == null) continue;
+                    curr = childElement.InnerText;
+                    Currencies.Add(curr);
+                }
+            }
+            comboBox1.DataSource = Currencies;
+
             RefreshData();
         }
 
@@ -52,6 +72,7 @@ namespace WebServ
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null) continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
@@ -80,6 +101,7 @@ namespace WebServ
         private void RefreshData()
         {
             Rates.Clear();
+            dataGridView1.DataSource = Rates;
             UseWeb();
             XML();
             Diagram();
