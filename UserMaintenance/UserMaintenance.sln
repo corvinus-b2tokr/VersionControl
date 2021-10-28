@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelGen", "..\ExcelGen\Exc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaR", "VaR\VaR.csproj", "{02B5ECEE-875F-4D53-906B-144F6160FB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSzolg", "..\..\VersionControl\WebSzolg\WebSzolg.csproj", "{A3DEE148-AE4D-4AA9-82A9-182F63EE5EB2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServ", "WebServ\WebServ.csproj", "{92971C55-87E2-4048-B283-1C78C8B6ED34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B5ECEE-875F-4D53-906B-144F6160FB91}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3DEE148-AE4D-4AA9-82A9-182F63EE5EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3DEE148-AE4D-4AA9-82A9-182F63EE5EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3DEE148-AE4D-4AA9-82A9-182F63EE5EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3DEE148-AE4D-4AA9-82A9-182F63EE5EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92971C55-87E2-4048-B283-1C78C8B6ED34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92971C55-87E2-4048-B283-1C78C8B6ED34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92971C55-87E2-4048-B283-1C78C8B6ED34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92971C55-87E2-4048-B283-1C78C8B6ED34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
