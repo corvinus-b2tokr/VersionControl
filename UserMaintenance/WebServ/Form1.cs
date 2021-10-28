@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebServ.Entities;
 using WebServ.MnbServiceReference;
 
 namespace WebServ
 {
     public partial class Form1 : Form
     {
+        BindingList<RateData> Rates = new BindingList<RateData>();
         public Form1()
         {
             InitializeComponent();
             UseWeb();
+            dataGridView1.DataSource = Rates;
         }
 
         private void UseWeb()
