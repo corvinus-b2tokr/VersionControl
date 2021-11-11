@@ -64,7 +64,10 @@ namespace FejlMint
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory()
+            {
+                BallColor = button3.BackColor
+            };
         }
 
         private void DisplayNext()
@@ -74,6 +77,16 @@ namespace FejlMint
             _nextToy.Left = label1.Left + label1.Width + 10;
             _nextToy.Top = label1.Top - 20;
             Controls.Add(_nextToy);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK) return;
+            button.BackColor = colorPicker.Color;
         }
     }
 }
