@@ -29,9 +29,10 @@ namespace WebServ
             var res = response.GetCurrenciesResult;
             var xml = new XmlDocument();
             xml.LoadXml(res);
+            Console.WriteLine(res);
             foreach (XmlElement element in xml.DocumentElement)
             {
-                for (int i = 0; i < element.InnerText.Length / 3; i++)
+                for (int i = 0; i < element.ChildNodes.Count; i++)
                 {
                     string curr;
                     var childElement = (XmlElement)element.ChildNodes[i];
