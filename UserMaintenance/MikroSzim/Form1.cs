@@ -15,32 +15,14 @@ namespace MikroSzim
     public partial class Form1 : Form
     {
         List<Person> Population = new List<Person>();
+        List<int> malePopulation = new List<int>();
+        List<int> femalePopulation = new List<int>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
         Random rng = new Random(1234);
         public Form1()
         {
             InitializeComponent();
-
-            Population = GetPopulation(@"C:\Temp\nép.csv");
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
-
-            for (int year = 2005; year <= 2024; year++)
-            {
-                for (int i = 0; i < Population.Count; i++)
-                {
-                    SimStep(year, Population[i]);
-                }
-
-                int nbrOfMales = (from x in Population
-                                  where x.Gender == Gender.Male && x.IsAlive
-                                  select x).Count();
-                int nbrOfFemales = (from x in Population
-                                    where x.Gender == Gender.Female && x.IsAlive
-                                    select x).Count();
-                Console.WriteLine(string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
-            }
         }
 
         public List<Person> GetPopulation(string csvpath)
@@ -100,6 +82,33 @@ namespace MikroSzim
             return deathProbabilities;
         }
 
+        public void Simulation()
+        {
+            var nepFajl = textBox1.Text;
+            Population = GetPopulation(nepFajl);
+            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+
+            var zaroEv = numericUpDown1.Value;
+            for (int year = 2005; year <= (int)zaroEv; year++)
+            {
+                for (int i = 0; i < Population.Count; i++)
+                {
+                    SimStep(year, Population[i]);
+                }
+
+                int nbrOfMales = (from x in Population
+                                  where x.Gender == Gender.Male && x.IsAlive
+                                  select x).Count();
+                malePopulation.Add(nbrOfMales);
+                int nbrOfFemales = (from x in Population
+                                    where x.Gender == Gender.Female && x.IsAlive
+                                    select x).Count();
+                femalePopulation.Add(nbrOfFemales);
+                Console.WriteLine(string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+            }
+        }
+
         public void SimStep(int year, Person person)
         {
             if (!person.IsAlive) return;
@@ -123,6 +132,35 @@ namespace MikroSzim
                     gyermek.Gender = (Gender)(rng.Next(1, 3));
                     Population.Add(gyermek);
                 }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            Population.Clear();
+            malePopulation.Clear();
+            femalePopulation.Clear();
+            Simulation();
+            DisplayResults();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Column Seperated Values (*.csv) | *.csv";
+            ofd.DefaultExt = "csv";
+            ofd.AddExtension = true;
+            if (ofd.ShowDialog() != DialogResult.OK) return;
+            textBox1.Text = ofd.FileName.ToString();
+        }
+
+        public void DisplayResults()
+        {
+            var zaroEv = numericUpDown1.Value;
+            for (int year = 2005; year <= (int)zaroEv; year++)
+            {
+                richTextBox1.Text += "Szimulációs év: " + year + "\n" + "\t" + "Fiúk: " + malePopulation[year-2005] + "\n" + "\t" + "Lányok: " + femalePopulation[year-2005] + "\n" + "\n";
             }
         }
     }
