@@ -30,7 +30,7 @@ namespace MikroSzim
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
-
+                    SimStep(year, Population[i]);
                 }
 
                 int nbrOfMales = (from x in Population
@@ -98,6 +98,32 @@ namespace MikroSzim
                 }
             }
             return deathProbabilities;
+        }
+
+        public void SimStep(int year, Person person)
+        {
+            if (!person.IsAlive) return;
+            int age = (int)(year - person.BirthYear);
+
+            double pDeath = (from x in DeathProbabilities
+                             where x.Gender == person.Gender && x.Age == age
+                             select x.P).FirstOrDefault();
+            if (rng.NextDouble() <= pDeath) person.IsAlive = false;
+
+            if (person.IsAlive && person.Gender == Gender.Female)
+            {
+                double pBirth = (from x in BirthProbabilities
+                                 where x.Age == age
+                                 select x.P).FirstOrDefault();
+                if (rng.NextDouble() <= pBirth)
+                {
+                    Person gyermek = new Person();
+                    gyermek.BirthYear = year;
+                    gyermek.NbrOfChildren = 0;
+                    gyermek.Gender = (Gender)(rng.Next(1, 3));
+                    Population.Add(gyermek);
+                }
+            }
         }
     }
 }
