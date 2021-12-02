@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServ", "WebServ\WebServ.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FejlMint", "FejlMint\FejlMint.csproj", "{0E898AD4-C092-4252-B2FE-016CCABA687A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikroSzim", "MikroSzim\MikroSzim.csproj", "{743B03FB-7A7E-4866-92D8-1074F6F23731}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0E898AD4-C092-4252-B2FE-016CCABA687A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E898AD4-C092-4252-B2FE-016CCABA687A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E898AD4-C092-4252-B2FE-016CCABA687A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
