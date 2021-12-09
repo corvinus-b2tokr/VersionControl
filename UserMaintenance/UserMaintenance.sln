@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FejlMint", "FejlMint\FejlMi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MikroSzim", "MikroSzim\MikroSzim.csproj", "{743B03FB-7A7E-4866-92D8-1074F6F23731}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvAlg", "EvAlg\EvAlg.csproj", "{0D6BE29E-52A3-4F1D-8682-7307950BDDA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{743B03FB-7A7E-4866-92D8-1074F6F23731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6BE29E-52A3-4F1D-8682-7307950BDDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6BE29E-52A3-4F1D-8682-7307950BDDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6BE29E-52A3-4F1D-8682-7307950BDDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6BE29E-52A3-4F1D-8682-7307950BDDA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
